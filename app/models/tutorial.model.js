@@ -1,4 +1,5 @@
 const { mongoose } = require(".");
+const mongoosePaginate = require('mongoose-paginate-v2'); 
 
 module.exports = mongoose => {
     const schema = mongoose.Schema({ 
@@ -14,6 +15,10 @@ module.exports = mongoose => {
         object.id = _id; 
         return object; 
     }); 
+
+
+    schema.plugin(mongoosePaginate); 
+
     const Tutorial = mongoose.model("tutorial", schema); 
     return Tutorial; 
 }; 
