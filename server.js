@@ -25,6 +25,7 @@ db.mongoose
     })
     .then(() => {
         console.log(`Connected to the database!`); 
+        initial();
     })
     .catch(err => {
         console.log(`Cannot connect to the database!`, err); 
@@ -67,6 +68,8 @@ app.get("/", (req, res) => {
 }); 
 
 require('./app/routes/tutorial.routes')(app); 
+require('./app/routes/auth.routes')(app); 
+require('./app/routes/user.routes')(app); 
 
 const PORT = process.env.PORT || 8080; 
 app.listen(PORT, () => {
